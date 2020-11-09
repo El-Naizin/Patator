@@ -1,0 +1,3 @@
+[submodule "Patator/vendor/spdlog"]
+	path = Patator/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
