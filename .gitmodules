@@ -1,3 +1,6 @@
 [submodule "Patator/vendor/spdlog"]
 	path = Patator/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "Patator/vendor/glfw"]
+	path = Patator/vendor/glfw
+	url = https://github.com/glfw/glfw.git
