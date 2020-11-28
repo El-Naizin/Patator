@@ -2,9 +2,8 @@
 
 #include <memory>
 #include "Core.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
-#include "spdlog/fmt/ostr.h"
+#include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
 
 namespace pat {
 
@@ -28,6 +27,7 @@ namespace pat {
 #define PAT_CORE_WARN(...)      ::pat::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define PAT_CORE_ERROR(...)     ::pat::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define PAT_CORE_FATAL(...)     ::pat::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define PAT_CORE_ASSERT(...)//TODO: faire un assert qui marche
 
 // Client logger
 #define PAT_TRACE(...)   ::pat::Log::GetClientLogger()->trace(__VA_ARGS__)
@@ -35,4 +35,4 @@ namespace pat {
 #define PAT_WARN(...)    ::pat::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define PAT_ERROR(...)   ::pat::Log::GetClientLogger()->error(__VA_ARGS__)
 #define PAT_FATAL(...)   ::pat::Log::GetClientLogger()->fatal(__VA_ARGS__)
-
+#define PAT_ASSERT(...)//TODO: faire un assert qui marche
