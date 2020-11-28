@@ -87,6 +87,7 @@ project "Sandbox"
     includedirs
     {
         "Patator/vendor/spdlog/include",
+        "Patator/vendor/GLFW/include",
         "Patator/src"
     }
 

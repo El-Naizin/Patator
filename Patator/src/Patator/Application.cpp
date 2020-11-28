@@ -4,7 +4,7 @@
 namespace pat {
 
 	Application::Application() {
-
+		m_window = std::unique_ptr<Window>(Window::create());
 	}
 
 	Application::~Application() {
@@ -12,6 +12,8 @@ namespace pat {
 	}
 
 	void Application::run() {
-		while (true);
+		while (m_running) {
+			m_window->onUpdate();
+		};
 	}
 }
