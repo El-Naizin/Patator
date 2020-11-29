@@ -26,7 +26,7 @@ namespace pat {
 			return res;
 		}
 
-		EVENT_CLASS_TYPE(KEY_PRESSED)
+		EVENT_CLASS_TYPE(PAT_KEY_PRESSED)
 	};
 
 	class PAT_API KeyReleasedEvent : public KeyEvent {
@@ -40,7 +40,7 @@ namespace pat {
 			return res;
 		}
 
-		EVENT_CLASS_TYPE(KEY_RELEASED);
+		EVENT_CLASS_TYPE(PAT_KEY_RELEASED)
 	};
 
 }

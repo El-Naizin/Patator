@@ -20,8 +20,8 @@ namespace pat {
 			return res;
 		}
 
-		EVENT_CLASS_TYPE(WINDOW_RESIZE)
-		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION);
+		EVENT_CLASS_TYPE(PAT_WINDOW_RESIZE)
+		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 	private:
 		unsigned int m_width, m_height;
 	};
@@ -30,7 +30,7 @@ namespace pat {
 	public:
 		WindowCloseEvent() {}
 
-		EVENT_CLASS_TYPE(WINDOW_CLOSE)
-		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION);
+		EVENT_CLASS_TYPE(PAT_WINDOW_CLOSE)
+		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 	};
 }
