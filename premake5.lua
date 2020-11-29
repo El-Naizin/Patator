@@ -24,6 +24,9 @@ project "Patator"
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "patpch.h"
+    pchsource "Patator/src/patpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
@@ -60,14 +63,17 @@ project "Patator"
 
     filter "configurations:Debug"
         defines "PAT_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "PAT_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "PAT_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -108,14 +114,17 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "PAT_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "PAT_RELEASE"
+        buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "PAT_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 
