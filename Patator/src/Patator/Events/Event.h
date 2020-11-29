@@ -2,9 +2,6 @@
 
 #include "Patator/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace pat {
 
 	enum class EventType
@@ -42,8 +39,8 @@ namespace pat {
 		inline bool isInCategory(EventCategory category) {
 			return getCategoryFlags() & category;
 		}
-	protected:
-		bool m_handled = false;
+		//Need this to be public so we can check it in Application runtime
+		bool handled = false;
 	};
 
 	class EventDispatcher {
@@ -56,7 +53,7 @@ namespace pat {
 		template <typename T>
 		bool dispatch(eventFn<T> func) {
 			if (m_event.getEventType() == T::getStaticType()) {
-				m_event.m_handled = func(*(T*)&m_event);
+				m_event.handled = func(*(T*)&m_event);
 				return true;
 			}
 			return false;

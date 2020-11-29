@@ -1,6 +1,4 @@
 #pragma once
-#include <sstream>
-#include <string>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 #include <Patator/Events/Event.h>

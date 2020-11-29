@@ -1,3 +1,4 @@
+#include <patpch.h>
 #include "Window.h"
 #include "Log.h"
 // Include events

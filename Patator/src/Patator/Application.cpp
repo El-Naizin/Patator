@@ -1,3 +1,4 @@
+#include <patpch.h>
 #include "Application.h"
 
 #include <Patator/Log.h>
@@ -19,6 +20,12 @@ namespace pat {
 		EventDispatcher dispatcher(e);
 		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
 		PAT_CORE_TRACE("{0}", e);
+
+		for (auto it = layerStack.end(); it != layerStack.begin();) {
+			(*--it)->onEvent(e);
+			if (e.handled)
+				break;
+		}
 	}
 
 	bool Application::onWindowClose(WindowCloseEvent& e) {
@@ -28,7 +35,18 @@ namespace pat {
 
 	void Application::run() {
 		while (m_running) {
+			for (Layer* layer : layerStack) {
+				layer->onUpdate();
+			}
 			m_window->onUpdate();
 		};
+	}
+
+	void Application::pushLayer(Layer* layer) {
+		layerStack.pushLayer(layer);
+	}
+
+	void Application::pushOverlay(Layer* overlay) {
+		layerStack.pushOverLay(overlay);
 	}
 }
