@@ -30,6 +30,12 @@ namespace pat {
 	public:
 		WindowCloseEvent() {}
 
+		std::string toString() const override {
+			std::string res;
+			res = "WindowCloseEvent.";
+			return res;
+		}
+
 		EVENT_CLASS_TYPE(PAT_WINDOW_CLOSE)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 	};

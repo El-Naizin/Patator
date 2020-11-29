@@ -61,7 +61,7 @@ namespace pat {
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 				WindowCloseEvent event;
-				data.eventCallback;
+				data.eventCallback(event);
 			});
 
 		glfwSetKeyCallback(this->window, [](GLFWwindow* window, int key, int scanCode, int action, int mods)

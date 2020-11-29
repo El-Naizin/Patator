@@ -3,6 +3,7 @@
 #include "Core.h"
 #include <Patator/Window.h>
 #include <Patator/Events/Event.h>
+#include <Patator/Events/ApplicationEvent.h>
 
 namespace pat {
 
@@ -14,6 +15,7 @@ namespace pat {
 		void run();
 		void onEvent(Event& e);
 	private:
+		bool onWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;
 	};
