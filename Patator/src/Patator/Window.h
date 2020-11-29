@@ -31,7 +31,9 @@ namespace pat {
 		inline unsigned int getHeight() const { return m_data.height; }
 
 		bool isSync();
+		void setVSync(bool enabled);
 		static Window* create(const WindowProps& props = WindowProps());
+		inline void setEventCallback(const EventCallbackFn& callback) { m_data.eventCallback = callback; }
 	private:
 		virtual void init(const WindowProps& props);
 		virtual void shutDown();
@@ -47,6 +49,5 @@ namespace pat {
 			EventCallbackFn eventCallback;
 		};
 		WindowData m_data;
-		void setVSync(bool enabled);
 	};
 }
