@@ -13,8 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Patator/vendor/GLFW/include"
+IncludeDir["GLAD"] = "Patator/vendor/GLAD/include"
+
 
 include "Patator/vendor/GLFW"
+include "Patator/vendor/GLAD"
 
 project "Patator"
     location "Patator"
@@ -37,12 +40,15 @@ project "Patator"
     {
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
+        "%{IncludeDir.GLAD}",
         "%{prj.name}/src"
     }
 
     links
     {
-        "GLFW"
+        "GLFW",
+        "GLAD",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -54,6 +60,7 @@ project "Patator"
         {
             "PAT_PLATFORM_WINDOWS",
             "PATATOR_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
@@ -94,6 +101,7 @@ project "Sandbox"
     {
         "Patator/vendor/spdlog/include",
         "Patator/vendor/GLFW/include",
+        "Patator/vendor/GLAD/include",
         "Patator/src"
     }
 
