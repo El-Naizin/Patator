@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>patpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PAT_PLATFORM_WINDOWS;PATATOR_BUILD_DLL;GLFW_INCLUDE_NONE;PAT_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>patpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PAT_PLATFORM_WINDOWS;PATATOR_BUILD_DLL;GLFW_INCLUDE_NONE;PAT_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>patpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>PAT_PLATFORM_WINDOWS;PATATOR_BUILD_DLL;GLFW_INCLUDE_NONE;PAT_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -160,6 +160,8 @@
     <ClInclude Include="src\Patator\Events\Event.h" />
     <ClInclude Include="src\Patator\Events\KeyEvent.h" />
     <ClInclude Include="src\Patator\Events\MouseEvent.h" />
+    <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Patator\Layer.h" />
     <ClInclude Include="src\Patator\LayerStack.h" />
     <ClInclude Include="src\Patator\Log.h" />
@@ -168,6 +170,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Patator\Application.cpp" />
+    <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Patator\Layer.cpp" />
     <ClCompile Include="src\Patator\LayerStack.cpp" />
     <ClCompile Include="src\Patator\Log.cpp" />
@@ -182,6 +186,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\GLAD\GLAD.vcxproj">
       <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

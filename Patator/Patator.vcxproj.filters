@@ -44,6 +44,8 @@
       <Filter>Patator</Filter>
     </ClInclude>
     <ClInclude Include="src\patpch.h" />
+    <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Patator\Application.cpp">
@@ -62,5 +64,7 @@
       <Filter>Patator</Filter>
     </ClCompile>
     <ClCompile Include="src\patpch.cpp" />
+    <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>

@@ -8,7 +8,11 @@ namespace pat {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_instance = nullptr;
+
 	Application::Application() {
+		Application::s_instance = this;
+
 		m_window = std::unique_ptr<Window>(Window::create());
 		m_window->setEventCallback(BIND_EVENT_FN(onEvent));
 	}
@@ -47,9 +51,11 @@ namespace pat {
 
 	void Application::pushLayer(Layer* layer) {
 		layerStack.pushLayer(layer);
+		layer->onAttach();
 	}
 
 	void Application::pushOverlay(Layer* overlay) {
 		layerStack.pushOverLay(overlay);
+		overlay->onAttach();
 	}
 }

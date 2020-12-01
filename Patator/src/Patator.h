@@ -5,6 +5,7 @@
 #include <Patator/Application.h>
 #include <Patator/Layer.h>
 #include <Patator/Log.h>
+#include <Patator/ImGui/ImGuiLayer.h>
 
 // Entry point:
 #include <Patator/EntryPoint.h>

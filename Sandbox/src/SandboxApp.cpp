@@ -22,6 +22,7 @@ public:
 
 	App() {
 		pushLayer(new ExampleLayer());
+		pushOverlay(new pat::ImGuiLayer());
 	}
 
 	~App() {
