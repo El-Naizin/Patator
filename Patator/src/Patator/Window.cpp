@@ -128,6 +128,14 @@ namespace pat {
 				MouseMovedEvent event((float)xPos, (float)yPos);
 				data.eventCallback(event);
 			});
+
+		glfwSetCharCallback(this->window, [](GLFWwindow* window, unsigned int keyCode)
+			{
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+
+				KeyTypedEvent event(keyCode);
+				data.eventCallback(event);
+			});
 	}
 
 	void Window::onUpdate() {

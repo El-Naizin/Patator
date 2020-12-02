@@ -9,11 +9,9 @@ public:
 	}
 
 	void onUpdate() override {
-		PAT_INFO("ExampleLayer::onUpdate");
 	}
 
 	void onEvent(pat::Event& event) override {
-		PAT_TRACE("ExampleLayer::onEvent: {0}", event);
 	}
 };
 

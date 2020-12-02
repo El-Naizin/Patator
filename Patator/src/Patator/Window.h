@@ -31,6 +31,7 @@ namespace pat {
 		void setVSync(bool enabled);
 		static Window* create(const WindowProps& props = WindowProps());
 		inline void setEventCallback(const EventCallbackFn& callback) { m_data.eventCallback = callback; }
+		inline GLFWwindow* getGLFWwindow() { return this->window; }
 	private:
 		virtual void init(const WindowProps& props);
 		virtual void shutDown();

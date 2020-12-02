@@ -24,7 +24,6 @@ namespace pat {
 	void Application::onEvent(Event& e) {
 		EventDispatcher dispatcher(e);
 		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
-		PAT_CORE_TRACE("{0}", e);
 
 		for (auto it = layerStack.end(); it != layerStack.begin();) {
 			(*--it)->onEvent(e);

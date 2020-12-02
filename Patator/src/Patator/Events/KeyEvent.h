@@ -29,6 +29,22 @@ namespace pat {
 		EVENT_CLASS_TYPE(PAT_KEY_PRESSED)
 	};
 
+	class PAT_API KeyTypedEvent : public KeyEvent {
+	public:
+		KeyTypedEvent(int keyCode) : KeyEvent(keyCode) {}
+
+		std::string toString() const override {
+			std::string res;
+			res = "KeyPressedEvent: ";
+			res.append(std::to_string(m_keyCode));
+			return res;
+		}
+
+		EVENT_CLASS_TYPE(PAT_KEY_TYPED)
+	private:
+		int repeatCount;
+	};
+
 	class PAT_API KeyReleasedEvent : public KeyEvent {
 	public:
 		KeyReleasedEvent(int keyCode) : KeyEvent(keyCode) {}
