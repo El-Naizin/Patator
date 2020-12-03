@@ -46,6 +46,8 @@
     <ClInclude Include="src\patpch.h" />
     <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Patator\KeyCodes.h" />
+    <ClInclude Include="src\Patator\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Patator\Application.cpp">
