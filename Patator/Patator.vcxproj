@@ -162,6 +162,7 @@
     <ClInclude Include="src\Patator\Events\MouseEvent.h" />
     <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Patator\Input.h" />
     <ClInclude Include="src\Patator\KeyCodes.h" />
     <ClInclude Include="src\Patator\Layer.h" />
     <ClInclude Include="src\Patator\LayerStack.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="src\Patator\Application.cpp" />
     <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Patator\Input.cpp" />
     <ClCompile Include="src\Patator\Layer.cpp" />
     <ClCompile Include="src\Patator\LayerStack.cpp" />
     <ClCompile Include="src\Patator\Log.cpp" />

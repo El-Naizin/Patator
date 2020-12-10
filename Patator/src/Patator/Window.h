@@ -1,6 +1,7 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #include <Patator/Events/Event.h>
+#include <Patator/Input.h>
 
 namespace pat {
 
@@ -31,7 +32,7 @@ namespace pat {
 		void setVSync(bool enabled);
 		static Window* create(const WindowProps& props = WindowProps());
 		inline void setEventCallback(const EventCallbackFn& callback) { m_data.eventCallback = callback; }
-		inline GLFWwindow* getGLFWwindow() { return this->window; }
+		inline void* getNativeWindow() { return this->window; }
 	private:
 		virtual void init(const WindowProps& props);
 		virtual void shutDown();
@@ -47,5 +48,6 @@ namespace pat {
 			EventCallbackFn eventCallback;
 		};
 		WindowData m_data;
+		Input* input;
 	};
 }

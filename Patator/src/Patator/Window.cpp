@@ -51,6 +51,8 @@ namespace pat {
 		// Set the userPointer to send back a pointer to m_data
 		glfwSetWindowUserPointer(this->window, &m_data);
 		setVSync(true);
+		//Initialize input:
+		this->input = new Input(this->window);
 
 		// Set GLFW callbacks:
 		glfwSetWindowSizeCallback(this->window, [](GLFWwindow* window, int width, int height)

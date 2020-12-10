@@ -48,6 +48,7 @@
     <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Patator\KeyCodes.h" />
     <ClInclude Include="src\Patator\MouseButtonCodes.h" />
+    <ClInclude Include="src\Patator\Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Patator\Application.cpp">
@@ -68,5 +69,6 @@
     <ClCompile Include="src\patpch.cpp" />
     <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Patator\Input.cpp" />
   </ItemGroup>
 </Project>

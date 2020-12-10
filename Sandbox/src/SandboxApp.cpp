@@ -9,6 +9,8 @@ public:
 	}
 
 	void onUpdate() override {
+		auto input = pat::Input::get();
+		input->isKeyPressed(PAT_KEY_TAB);
 	}
 
 	void onEvent(pat::Event& event) override {
