@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Patator/vendor/GLFW/include"
 IncludeDir["GLAD"] = "Patator/vendor/GLAD/include"
 IncludeDir["ImGui"] = "Patator/vendor/imgui"
+IncludeDir["glm"] = "Patator/vendor/glm"
 
 include "Patator/vendor/GLFW"
 include "Patator/vendor/GLAD"
@@ -43,6 +44,7 @@ project "Patator"
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.GLAD}",
         "%{IncludeDir.ImGui}",
+        "%{IncludeDir.glm}",
         "%{prj.name}/src"
     }
 
@@ -105,6 +107,7 @@ project "Sandbox"
         "Patator/vendor/spdlog/include",
         "Patator/vendor/GLFW/include",
         "Patator/vendor/GLAD/include",
+        "%{IncludeDir.glm}",
         "Patator/src"
     }
 

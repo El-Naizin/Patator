@@ -7,6 +7,12 @@
     <Filter Include="Patator\Events">
       <UniqueIdentifier>{04CE66B1-F09B-5AB7-D92F-CBDDC59C361C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Patator\ImGui">
+      <UniqueIdentifier>{4AD34DB0-B693-C9E6-7FCE-1264EB4D0EC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Patator\ImGui\OpenGL">
+      <UniqueIdentifier>{3EA58627-2A34-10F1-D352-24ECBFC02097}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Patator.h" />
@@ -31,6 +37,18 @@
     <ClInclude Include="src\Patator\Events\MouseEvent.h">
       <Filter>Patator\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h">
+      <Filter>Patator\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h">
+      <Filter>Patator\ImGui\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Patator\Input.h">
+      <Filter>Patator</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Patator\KeyCodes.h">
+      <Filter>Patator</Filter>
+    </ClInclude>
     <ClInclude Include="src\Patator\Layer.h">
       <Filter>Patator</Filter>
     </ClInclude>
@@ -40,18 +58,25 @@
     <ClInclude Include="src\Patator\Log.h">
       <Filter>Patator</Filter>
     </ClInclude>
+    <ClInclude Include="src\Patator\MouseButtonCodes.h">
+      <Filter>Patator</Filter>
+    </ClInclude>
     <ClInclude Include="src\Patator\Window.h">
       <Filter>Patator</Filter>
     </ClInclude>
     <ClInclude Include="src\patpch.h" />
-    <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Patator\KeyCodes.h" />
-    <ClInclude Include="src\Patator\MouseButtonCodes.h" />
-    <ClInclude Include="src\Patator\Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Patator\Application.cpp">
+      <Filter>Patator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp">
+      <Filter>Patator\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp">
+      <Filter>Patator\ImGui\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Patator\Input.cpp">
       <Filter>Patator</Filter>
     </ClCompile>
     <ClCompile Include="src\Patator\Layer.cpp">
@@ -67,8 +92,5 @@
       <Filter>Patator</Filter>
     </ClCompile>
     <ClCompile Include="src\patpch.cpp" />
-    <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp" />
-    <ClCompile Include="src\Patator\Input.cpp" />
   </ItemGroup>
 </Project>
