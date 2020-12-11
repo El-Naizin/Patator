@@ -5,6 +5,7 @@
 #include <Patator/Events/Event.h>
 #include <Patator/Events/ApplicationEvent.h>
 #include <Patator/LayerStack.h>
+#include <Patator/ImGui/ImGuiLayer.h>
 
 namespace pat {
 
@@ -24,6 +25,7 @@ namespace pat {
 	private:
 		bool onWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_running = true;
 		LayerStack layerStack;
 

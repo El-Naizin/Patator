@@ -1,9 +1,9 @@
 #include <patpch.h>
 #include "LayerStack.h"
+#include <Patator/Log.h>
 
 namespace pat {
 	LayerStack::LayerStack() {
-		layerInsert = layers.begin();
 	}
 
 	LayerStack::~LayerStack() {
@@ -13,14 +13,15 @@ namespace pat {
 	}
 
 	void LayerStack::pushLayer(Layer* layer) {
-		layerInsert = layers.emplace(layerInsert, layer);
+		layers.emplace(layers.begin() + layerInsertIndex, layer);
+		layerInsertIndex++;
 	}
 
 	void LayerStack::popLayer(Layer* layer) {
 		auto it = std::find(layers.begin(), layers.end(), layer);
 		if (it != layers.end()) {
 			layers.erase(it);
-			layerInsert--;
+			layerInsertIndex--;
 		}
 	}
 

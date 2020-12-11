@@ -40,9 +40,6 @@
     <ClInclude Include="src\Patator\ImGui\ImGuiLayer.h">
       <Filter>Patator\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.h">
-      <Filter>Patator\ImGui\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="src\Patator\Input.h">
       <Filter>Patator</Filter>
     </ClInclude>
@@ -73,9 +70,6 @@
     <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp">
       <Filter>Patator\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Patator\ImGui\OpenGL\imGuiOpenGLRenderer.cpp">
-      <Filter>Patator\ImGui\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="src\Patator\Input.cpp">
       <Filter>Patator</Filter>
     </ClCompile>
@@ -92,5 +86,6 @@
       <Filter>Patator</Filter>
     </ClCompile>
     <ClCompile Include="src\patpch.cpp" />
+    <ClCompile Include="src\Patator\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>
