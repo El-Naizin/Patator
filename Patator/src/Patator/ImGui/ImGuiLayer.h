@@ -7,7 +7,7 @@
 
 namespace pat {
 
-	class PAT_API ImGuiLayer : public Layer {
+	class ImGuiLayer : public Layer {
 	public:
 		ImGuiLayer();
 		~ImGuiLayer();

@@ -43,7 +43,7 @@ namespace pat {
 	void Application::run() {
 		while (m_running) {
 			//Clear screen
-			glClearColor(1, 1, 0, 1);
+			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 			//Update all layers
 			for (Layer* layer : layerStack) {

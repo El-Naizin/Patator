@@ -7,7 +7,7 @@
 
 namespace pat {
 
-	class PAT_API LayerStack {
+	class LayerStack {
 	public:
 		LayerStack();
 		~LayerStack();

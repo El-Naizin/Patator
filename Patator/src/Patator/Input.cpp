@@ -23,13 +23,13 @@ namespace pat {
 	float Input::getMouseX() {
 		double x, y;
 		glfwGetCursorPos(this->window, &x, &y);
-		return x;
+		return (float)x;
 	}
 
 	float Input::getMouseY() {
 		double x, y;
 		glfwGetCursorPos(this->window, &x, &y);
-		return y;
+		return (float)y;
 	}
 
 	bool Input::isKeyPressed(int keyCode) {

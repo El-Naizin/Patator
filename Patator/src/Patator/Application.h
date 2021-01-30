@@ -9,7 +9,7 @@
 
 namespace pat {
 
-	class PAT_API Application
+	class Application
 	{
 	public:
 		Application();

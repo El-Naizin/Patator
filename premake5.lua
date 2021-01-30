@@ -1,5 +1,6 @@
 workspace "Patator"
     architecture "x64"
+    startproject "Sandbox"
 
     configurations
     {
@@ -23,14 +24,22 @@ include "Patator/vendor/imgui"
 
 project "Patator"
     location "Patator"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
+    
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "patpch.h"
     pchsource "Patator/src/patpch.cpp"
+
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS"
+    }
 
     files
     {
@@ -57,41 +66,36 @@ project "Patator"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
         {
             "PAT_PLATFORM_WINDOWS",
-            "PATATOR_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
-        }
-
-        postbuildcommands
-        {
-            ("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
         }
 
     filter "configurations:Debug"
         defines "PAT_DEBUG"
-        buildoptions "/MDd"
-        symbols "On"
+        symbols "on"
+        runtime "Debug"
+
 
     filter "configurations:Release"
         defines "PAT_RELEASE"
-        buildoptions "/MD"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "PAT_DIST"
-        buildoptions "/MD"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
 project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -117,8 +121,6 @@ project "Sandbox"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
@@ -128,18 +130,18 @@ project "Sandbox"
 
     filter "configurations:Debug"
         defines "PAT_DEBUG"
-        buildoptions "/MDd"
-        symbols "On"
+        runtime "Debug"
+        symbols "on"
 
     filter "configurations:Release"
         defines "PAT_RELEASE"
-        buildoptions "/MD"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "PAT_DIST"
-        buildoptions "/MD"
-        optimize "On"
+        runtime "Release"
+        optimize "on"
 
 
 

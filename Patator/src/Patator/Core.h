@@ -1,9 +1,8 @@
 #pragma once
 
-#ifdef PATATOR_BUILD_DLL
-#define PAT_API __declspec(dllexport)
-#else
-#define PAT_API __declspec(dllimport)
+
+#ifdef PAT_DEBUG
+	#define PAT_ASSERTIONS
 #endif
 
 // BIT definis une macro qui renvoie un octet avec un BIT

@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <Patator/Events/Event.h>
 #include <Patator/Input.h>
+#include <Patator/Renderer/GraphicsContext.h>
 
 namespace pat {
 
@@ -39,6 +40,7 @@ namespace pat {
 
 	private:
 		GLFWwindow* window;
+		GraphicsContext* context;
 		struct WindowData
 		{
 			std::string title;

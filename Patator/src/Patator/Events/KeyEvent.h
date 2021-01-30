@@ -4,7 +4,7 @@
 
 namespace pat {
 
-	class PAT_API KeyEvent : public Event {
+	class KeyEvent : public Event {
 	public:
 		inline int getKeyCode() const { return m_keyCode; }
 
@@ -15,7 +15,7 @@ namespace pat {
 		int m_keyCode;
 	};
 
-	class PAT_API KeyPressedEvent : public KeyEvent {
+	class KeyPressedEvent : public KeyEvent {
 	public:
 		KeyPressedEvent(int keyCode) : KeyEvent(keyCode) {}
 
@@ -29,7 +29,7 @@ namespace pat {
 		EVENT_CLASS_TYPE(PAT_KEY_PRESSED)
 	};
 
-	class PAT_API KeyTypedEvent : public KeyEvent {
+	class KeyTypedEvent : public KeyEvent {
 	public:
 		KeyTypedEvent(int keyCode) : KeyEvent(keyCode) {}
 
@@ -45,7 +45,7 @@ namespace pat {
 		int repeatCount;
 	};
 
-	class PAT_API KeyReleasedEvent : public KeyEvent {
+	class KeyReleasedEvent : public KeyEvent {
 	public:
 		KeyReleasedEvent(int keyCode) : KeyEvent(keyCode) {}
 		

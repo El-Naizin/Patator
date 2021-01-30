@@ -4,7 +4,7 @@
 
 namespace pat {
 
-	class PAT_API Input 
+	class Input 
 	{
 	public:
 

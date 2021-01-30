@@ -10,9 +10,6 @@
     <Filter Include="Patator\ImGui">
       <UniqueIdentifier>{4AD34DB0-B693-C9E6-7FCE-1264EB4D0EC3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Patator\ImGui\OpenGL">
-      <UniqueIdentifier>{3EA58627-2A34-10F1-D352-24ECBFC02097}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Patator.h" />
@@ -62,10 +59,15 @@
       <Filter>Patator</Filter>
     </ClInclude>
     <ClInclude Include="src\patpch.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Patator\Renderer\GraphicsContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Patator\Application.cpp">
       <Filter>Patator</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Patator\ImGui\ImGuiBuild.cpp">
+      <Filter>Patator\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Patator\ImGui\ImGuiLayer.cpp">
       <Filter>Patator\ImGui</Filter>
@@ -86,6 +88,6 @@
       <Filter>Patator</Filter>
     </ClCompile>
     <ClCompile Include="src\patpch.cpp" />
-    <ClCompile Include="src\Patator\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
   </ItemGroup>
 </Project>

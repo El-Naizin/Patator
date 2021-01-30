@@ -5,7 +5,7 @@
 #include <Patator/Events/ApplicationEvent.h>
 #include <Patator/Events/KeyEvent.h>
 #include <Patator/Events/MouseEvent.h>
-#include <glad/glad.h>
+#include <Platform/OpenGL/OpenGLContext.h>
 
 namespace pat {
 	static bool s_GLFWInitialized = false;
@@ -43,11 +43,12 @@ namespace pat {
 			s_GLFWInitialized = true;
 		}
 		this->window = glfwCreateWindow((int)props.width, (int)props.height, m_data.title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(this->window);
 
-		//initialize glad after creating the window context
-		int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		PAT_CORE_INFO("Glad loadGL version : {0}", success);
+		// Create the openGL specific context
+		// Will Have to change here when migrating to Vulkan
+		this->context = new OpenGLContext(this->window);
+		this->context->init();
+
 		// Set the userPointer to send back a pointer to m_data
 		glfwSetWindowUserPointer(this->window, &m_data);
 		setVSync(true);
@@ -142,7 +143,7 @@ namespace pat {
 
 	void Window::onUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(window);
+		this->context->swapBuffers();
 	}
 
 	void Window::setVSync(bool enabled) {
