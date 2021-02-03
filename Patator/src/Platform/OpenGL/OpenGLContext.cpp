@@ -17,6 +17,11 @@ namespace pat {
 		glfwMakeContextCurrent(this->windowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		PAT_CORE_ASSERT(status, "Failed to initialize GLAD!");
+
+		PAT_CORE_INFO("OpenGL Info:");
+		PAT_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
+		PAT_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
+		PAT_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::swapBuffers() {

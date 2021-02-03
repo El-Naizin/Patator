@@ -31,9 +31,9 @@ namespace pat {
 	}
 
 	void Window::init(const WindowProps& props) {
-		m_data.title = props.title;
-		m_data.width = props.width;
-		m_data.height = props.height;
+		data.title = props.title;
+		data.width = props.width;
+		data.height = props.height;
 		PAT_CORE_INFO("Creating window {0} ({1}, {2})", props.title, props.width, props.height);
 
 		if (!s_GLFWInitialized) {
@@ -42,15 +42,15 @@ namespace pat {
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
-		this->window = glfwCreateWindow((int)props.width, (int)props.height, m_data.title.c_str(), nullptr, nullptr);
+		this->window = glfwCreateWindow((int)props.width, (int)props.height, data.title.c_str(), nullptr, nullptr);
 
 		// Create the openGL specific context
 		// Will Have to change here when migrating to Vulkan
 		this->context = new OpenGLContext(this->window);
 		this->context->init();
 
-		// Set the userPointer to send back a pointer to m_data
-		glfwSetWindowUserPointer(this->window, &m_data);
+		// Set the userPointer to send back a pointer to data
+		glfwSetWindowUserPointer(this->window, &data);
 		setVSync(true);
 		//Initialize input:
 		this->input = new Input(this->window);
@@ -151,11 +151,11 @@ namespace pat {
 			glfwSwapInterval(1);
 		else
 			glfwSwapInterval(0);
-		this->m_data.vSync = enabled;
+		this->data.vSync = enabled;
 	}
 
 	bool Window::isSync() {
-		return this->m_data.vSync;
+		return this->data.vSync;
 	}
 
 }

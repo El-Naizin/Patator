@@ -6,13 +6,13 @@ namespace pat {
 
 	class KeyEvent : public Event {
 	public:
-		inline int getKeyCode() const { return m_keyCode; }
+		inline int getKeyCode() const { return keyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategory::KEYBOARD | EventCategory::INPUT)
 	protected:
-		KeyEvent(int keyCode) : m_keyCode(keyCode) {} //Constructeur affecte keyCode a m_keyCode
+		KeyEvent(int keyCode) : keyCode(keyCode) {} //Constructeur affecte keyCode a keyCode
 
-		int m_keyCode;
+		int keyCode;
 	};
 
 	class KeyPressedEvent : public KeyEvent {
@@ -22,7 +22,7 @@ namespace pat {
 		std::string toString() const override {
 			std::string res;
 			res = "KeyPressedEvent: ";
-			res.append(std::to_string(m_keyCode));
+			res.append(std::to_string(keyCode));
 			return res;
 		}
 
@@ -36,7 +36,7 @@ namespace pat {
 		std::string toString() const override {
 			std::string res;
 			res = "KeyPressedEvent: ";
-			res.append(std::to_string(m_keyCode));
+			res.append(std::to_string(keyCode));
 			return res;
 		}
 
@@ -52,7 +52,7 @@ namespace pat {
 		std::string toString() const override {
 			std::string res;
 			res = "KeyPressedEvent: ";
-			res.append(std::to_string(m_keyCode));
+			res.append(std::to_string(keyCode));
 			return res;
 		}
 

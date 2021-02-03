@@ -48,19 +48,19 @@ namespace pat {
 		using eventFn = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event)
-			: m_event(event) {}
+			: event(event) {}
 
 		template <typename T>
 		bool dispatch(eventFn<T> func) {
-			if (m_event.getEventType() == T::getStaticType()) {
-				m_event.handled = func(*(T*)&m_event);
+			if (event.getEventType() == T::getStaticType()) {
+				event.handled = func(*(T*)&event);
 				return true;
 			}
 			return false;
 		}
 
 	private:
-		Event& m_event;
+		Event& event;
 	};
 
 	inline std::ostream& operator<<(std::ostream& os, const Event& e) {

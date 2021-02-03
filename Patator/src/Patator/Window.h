@@ -26,13 +26,13 @@ namespace pat {
 		virtual ~Window();
 
 		void onUpdate();
-		inline unsigned int getWidth() const { return m_data.width; }
-		inline unsigned int getHeight() const { return m_data.height; }
+		inline unsigned int getWidth() const { return data.width; }
+		inline unsigned int getHeight() const { return data.height; }
 
 		bool isSync();
 		void setVSync(bool enabled);
 		static Window* create(const WindowProps& props = WindowProps());
-		inline void setEventCallback(const EventCallbackFn& callback) { m_data.eventCallback = callback; }
+		inline void setEventCallback(const EventCallbackFn& callback) { data.eventCallback = callback; }
 		inline void* getNativeWindow() { return this->window; }
 	private:
 		virtual void init(const WindowProps& props);
@@ -49,7 +49,7 @@ namespace pat {
 
 			EventCallbackFn eventCallback;
 		};
-		WindowData m_data;
+		WindowData data;
 		Input* input;
 	};
 }

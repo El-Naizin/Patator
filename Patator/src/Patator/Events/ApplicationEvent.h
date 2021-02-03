@@ -6,24 +6,24 @@ namespace pat {
 	class WindowResizeEvent : public Event {
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
-			: m_width(width), m_height(height) {}
+			: width(width), height(height) {}
 
-		inline unsigned int getWidth() const { return m_width; }
-		inline unsigned int getHeight() const { return m_height; }
+		inline unsigned int getWidth() const { return width; }
+		inline unsigned int getHeight() const { return height; }
 
 		std::string toString() const override {
 			std::string res;
 			res = "WindowResizeEvent: Width=";
-			res.append(std::to_string(m_width));
+			res.append(std::to_string(width));
 			res.append(", Height=");
-			res.append(std::to_string(m_height));
+			res.append(std::to_string(height));
 			return res;
 		}
 
 		EVENT_CLASS_TYPE(PAT_WINDOW_RESIZE)
 		EVENT_CLASS_CATEGORY(EventCategory::APPLICATION)
 	private:
-		unsigned int m_width, m_height;
+		unsigned int width, height;
 	};
 
 	class WindowCloseEvent : public Event {

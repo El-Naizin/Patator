@@ -21,15 +21,17 @@ namespace pat {
 		void pushOverlay(Layer* overlay);
 
 		static inline Application& get() { return *s_instance; }
-		inline Window& getWindow() { return *m_window; }
+		inline Window& getWindow() { return *window; }
 	private:
 		bool onWindowClose(WindowCloseEvent& e);
-		std::unique_ptr<Window> m_window;
-		ImGuiLayer* m_ImGuiLayer;
-		bool m_running = true;
+		std::unique_ptr<Window> window;
+		ImGuiLayer* imGuiLayer;
+		bool running = true;
 		LayerStack layerStack;
 
 		static Application* s_instance;
+
+		unsigned int vertexArray, vertexBuffer, indexBuffer;
 	};
 
 	//To be defined in app

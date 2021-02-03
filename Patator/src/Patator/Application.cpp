@@ -13,11 +13,34 @@ namespace pat {
 	Application::Application() {
 		Application::s_instance = this;
 
-		this->m_window = std::unique_ptr<Window>(Window::create());
-		this->m_window->setEventCallback(BIND_EVENT_FN(onEvent));
+		this->window = std::unique_ptr<Window>(Window::create());
+		this->window->setEventCallback(BIND_EVENT_FN(onEvent));
 
-		this->m_ImGuiLayer = new ImGuiLayer();
-		this->pushOverlay(m_ImGuiLayer);
+		this->imGuiLayer = new ImGuiLayer();
+		this->pushOverlay(imGuiLayer);
+
+		glGenVertexArrays(1, &this->vertexArray);
+		glBindVertexArray(vertexArray);
+		
+		glGenBuffers(1, &this->vertexBuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, this->vertexBuffer);
+
+		float vertices[3 * 3] = {
+			-0.5f, -0.5f, 0.0f,
+			0.5f, -0.5f, 0.0f,
+			0.0f, 0.5f, 0.0f,
+		};
+
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+
+		glGenBuffers(1, &this->indexBuffer);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->indexBuffer);
+
+		unsigned int indices[3] = { 0, 1, 2 };
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	}
 
 	Application::~Application() {
@@ -36,27 +59,32 @@ namespace pat {
 	}
 
 	bool Application::onWindowClose(WindowCloseEvent& e) {
-		m_running = false;
+		running = false;
 		return true;
 	}
 
 	void Application::run() {
-		while (m_running) {
+		while (running) {
 			//Clear screen
 			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			//Draw what's in the vertex buffer
+			glBindVertexArray(this->vertexArray);
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+
 			//Update all layers
 			for (Layer* layer : layerStack) {
 				layer->onUpdate();
 			}
-			this->m_ImGuiLayer->begin();
+			this->imGuiLayer->begin();
 			//Render all imgui layers
 			for (Layer* layer : layerStack) {
 				layer->onImGuiRender();
 			}
-			this->m_ImGuiLayer->end();
+			this->imGuiLayer->end();
 			//Update window
-			m_window->onUpdate();
+			window->onUpdate();
 		};
 	}
 

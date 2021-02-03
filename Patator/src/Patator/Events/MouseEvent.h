@@ -7,59 +7,59 @@ namespace pat {
 	class MouseMovedEvent : public Event {
 	public:
 		MouseMovedEvent(float x, float y)
-			: m_mouseX(x), m_mouseY(y) {}
+			: mouseX(x), mouseY(y) {}
 
-		inline float getX() const { return m_mouseX; }
-		inline float getY() const { return m_mouseY; }
+		inline float getX() const { return mouseX; }
+		inline float getY() const { return mouseY; }
 
 		std::string toString() const override {
 			std::string res;
 			res = "MouseMovedEvent: X=";
-			res.append(std::to_string(m_mouseX));
+			res.append(std::to_string(mouseX));
 			res.append(", Y=");
-			res.append(std::to_string(m_mouseY));
+			res.append(std::to_string(mouseY));
 			return res;
 		}
 
 		EVENT_CLASS_TYPE(PAT_MOUSE_MOVED)
 		EVENT_CLASS_CATEGORY(EventCategory::INPUT | EventCategory::MOUSE)
 	private:
-		float m_mouseX, m_mouseY;
+		float mouseX, mouseY;
 	};
 
 	class MouseScrolledEvent : public Event {
 	public:
 		MouseScrolledEvent(float offsetX, float offsetY)
-			: m_offsetX(offsetX), m_offsetY(offsetY) {}
+			: offsetX(offsetX), offsetY(offsetY) {}
 
-		inline float getOffsetX() const { return m_offsetX; }
-		inline float getOffsetY() const { return m_offsetY; }
+		inline float getOffsetX() const { return offsetX; }
+		inline float getOffsetY() const { return offsetY; }
 
 		std::string toString() const override {
 			std::string res;
 			res = "MouseScrolledEvent: X=";
-			res.append(std::to_string(m_offsetX));
+			res.append(std::to_string(offsetX));
 			res.append(", Y=");
-			res.append(std::to_string(m_offsetY));
+			res.append(std::to_string(offsetY));
 			return res;
 		}
 
 		EVENT_CLASS_TYPE(PAT_MOUSE_SCROLLED)
 		EVENT_CLASS_CATEGORY(EventCategory::INPUT | EventCategory::MOUSE)
 	private:
-		float m_offsetX, m_offsetY;
+		float offsetX, offsetY;
 	};
 
 	class MouseButtonEvent : public Event {
 	public:
-		inline int getMouseButton() const { return m_button; }
+		inline int getMouseButton() const { return button; }
 
 		EVENT_CLASS_CATEGORY(EventCategory::INPUT | EventCategory::MOUSE | EventCategory::MOUSE_BUTTON)
 	protected:
 		MouseButtonEvent(int button)
-			: m_button(button) {}
+			: button(button) {}
 
-		int m_button;
+		int button;
 	};
 
 	class MouseButtonPressedEvent : public MouseButtonEvent {
@@ -70,7 +70,7 @@ namespace pat {
 		std::string toString() const override {
 			std::string res;
 			res = "MousePressedEvent: ";
-			res.append(std::to_string(m_button));
+			res.append(std::to_string(button));
 			return res;
 		}
 
@@ -85,7 +85,7 @@ namespace pat {
 		std::string toString() const override {
 			std::string res;
 			res = "MouseReleasedEvent: ";
-			res.append(std::to_string(m_button));
+			res.append(std::to_string(button));
 			return res;
 		}
 
